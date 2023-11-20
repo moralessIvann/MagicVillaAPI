@@ -7,24 +7,24 @@ namespace MagicVilla_API.Repository;
 
 public class Repository<T> : IRepository<T> where T : class
 {
-    private readonly ApplicationDbContext _db;
-    internal DbSet<T> dbSet;
+    private readonly ApplicationDbContext _dbContext;
+    internal DbSet<T> _dbSet;
 
-    public Repository(ApplicationDbContext db)
+    public Repository(ApplicationDbContext dbContext)
     {
-        _db = db;
-        this.dbSet = _db.Set<T>();
+        _dbContext = dbContext;
+        this._dbSet = _dbContext.Set<T>(); //convert generic T to model entity
     }
 
     public async Task CreateEntity(T entity)
     {
-        await dbSet.AddAsync(entity);
+        await _dbSet.AddAsync(entity);
         await Save();
     }
 
     public async Task<T> Get(Expression<Func<T, bool>>? filter = null, bool tracked = true)
     {
-        IQueryable<T> query = dbSet; //with this we able queries when filtering
+        IQueryable<T> query = _dbSet; //with this we able queries when filtering
         
         if(!tracked) {
             query = query.AsNoTracking();
@@ -39,7 +39,7 @@ public class Repository<T> : IRepository<T> where T : class
 
     public async Task<List<T>> GetAll(Expression<Func<T, bool>>? filter = null)
     {
-        IQueryable<T> query = dbSet; //with this we able queries when filtering
+        IQueryable<T> query = _dbSet; //with this we able queries when filtering
 
         if (filter != null)
         {
@@ -51,12 +51,12 @@ public class Repository<T> : IRepository<T> where T : class
 
     public async Task Remove(T entity)
     {
-        dbSet.Remove(entity);
+        _dbSet.Remove(entity);
         await Save();
     }
 
     public async Task Save()
     {
-        await _db.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
     }
 }

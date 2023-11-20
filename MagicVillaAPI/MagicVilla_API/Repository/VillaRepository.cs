@@ -5,17 +5,17 @@ using MagicVilla_API.Repository.IRepository;
 namespace MagicVilla_API.Repository;
 public class VillaRepository : Repository<Villa>, IVillaRepository
 {
-    public readonly ApplicationDbContext _db;
+    public readonly ApplicationDbContext _dbContext;
 
-    public VillaRepository(ApplicationDbContext db) : base(db)
+    public VillaRepository(ApplicationDbContext dbContext) : base(dbContext)
     {
-        _db = db;
+        _dbContext = dbContext;
     }
     public async Task<Villa> Update(Villa entity)
     {
         entity.CreatedDate = DateTime.Now;
-        _db.Update(entity);
-        await _db.SaveChangesAsync();
+        _dbContext.Update(entity);
+        await _dbContext.SaveChangesAsync();
         return entity;
 
     }
