@@ -11,6 +11,7 @@ public class ApplicationDbContext : DbContext
     }
     
     public DbSet<Villa> Villas { get; set; } //esto es una tabla en la bd
+    public DbSet<VillaNum> VillaNum { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

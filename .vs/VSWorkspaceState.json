@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\MagicVillaAPI"
+    "\\MagicVillaAPI",
+    "\\MagicVillaAPI\\MagicVilla_API",
+    "\\MagicVillaAPI\\MagicVilla_API\\Models",
+    "\\MagicVillaAPI\\MagicVilla_API\\Models\\DTO"
   ],
-  "SelectedNode": "\\MagicVillaAPI\\MagicVillaAPI.sln",
+  "SelectedNode": "\\MagicVillaAPI\\MagicVilla_API\\Models\\DTO\\VillaDTO.cs",
   "PreviewInSolutionExplorer": false
 }
