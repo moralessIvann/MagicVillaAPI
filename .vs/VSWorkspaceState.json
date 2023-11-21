@@ -3,9 +3,10 @@
     "",
     "\\MagicVillaAPI",
     "\\MagicVillaAPI\\MagicVilla_API",
+    "\\MagicVillaAPI\\MagicVilla_API\\Controllers",
     "\\MagicVillaAPI\\MagicVilla_API\\Models",
     "\\MagicVillaAPI\\MagicVilla_API\\Models\\DTO"
   ],
-  "SelectedNode": "\\MagicVillaAPI\\MagicVilla_API\\Models\\DTO\\VillaDTO.cs",
+  "SelectedNode": "\\MagicVillaAPI\\MagicVilla_API\\Controllers\\VillaNumController.cs",
   "PreviewInSolutionExplorer": false
 }
